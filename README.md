@@ -15,7 +15,8 @@ O Selection Sort funciona dividindo os dados em duas partes: ordenados e não or
 
 O fluxo é basicamente:\
 **1 - Encontrar o elemento mínimo entre os dados**
-```
+
+```python
 lista = [75, 12, 7, 8, 36]
 menor_elemento_id = 0
 for i in range(len(lista)):
@@ -25,7 +26,8 @@ for i in range(len(lista)):
 </br>
 
 **2 - Trocar o elemento mínimo encontrado com o elemento de primeiro índice**
-```
+
+```python
 lista = [75, 12, 7, 8, 36]
 menor_elemento_id = 0
 for i in range(len(lista)):
@@ -41,7 +43,8 @@ if lista[limite] > lista[menor_elemento_id]:
 </br>
 
 **3 - Mover o limite para a direita e repetir até ordenar tudo**
-```
+
+```python
 lista = [75, 12, 7, 8, 36]
 for actual in range(len(lista) - 1):
     min_id = actual
@@ -58,7 +61,31 @@ return lista
 ```
 </br>
 
-### Vantagens do Selection Sort: 
-Fácil de implementar e funciona bem para listas pequenas
-### Desvantagens do Selection Sort: 
-Não é tão eficiente pra listas grandes
+**Vantagens do Selection Sort:** Fácil de implementar e funciona bem para listas pequenas.
+**Desvantagens do Selection Sort:** Não é tão eficiente pra listas grandes.
+
+## Bubble Sort
+O Bubble Sort trabalha verificando os elementos de dois em dois. Ele começa analisando a primeira dupla de valores, deixando o valor mínimo na parte esquerda da dupla (se a dupla for [9, 4] o algoritmo transformará em [4, 9]). 
+
+```python
+lista = [4, 9, 2, 1, 7, 8]
+def bubble_sort(lista):
+    for i in range(len(lista) - 1):
+        if lista[i+1] < lista[i]:
+            lista[i], lista[i+1] = lista[i+1], lista[i]
+    return lista
+```
+</br>
+A função acima tem o output `[4, 2, 1, 7, 8, 9]`, o que ainda não é satisfatório. Para garantir que o a sequência seja ordenada, nós podemos executar um laço dentro de outro que usa o mesmo intervalo:
+
+```python
+def bubble_sort2(lista):
+    for _ in range(len(lista) - 1):
+        for i in range(len(lista) - 1):
+            if lista[i+1] < lista[i]:
+                lista[i], lista[i+1] = lista[i+1], lista[i] # troca sem variável auxiliar
+    return lista
+```
+
+**Vantagens do Bubble Sort:** Também é fácil de implementar e funciona bem para listas pequenas e é mais adaptável.
+**Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes conjuntos e faz mais trocas que o `Selection Sort`.
