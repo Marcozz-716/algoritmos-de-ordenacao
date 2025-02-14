@@ -23,6 +23,7 @@ for i in range(len(lista)):
         menor_elemento_id = i
 ```
 </br>
+
 **2 - Trocar o elemento mínimo encontrado com o elemento de primeiro índice**
 ```
 lista = [75, 12, 7, 8, 36]
@@ -38,21 +39,23 @@ if lista[limite] > lista[menor_elemento_id]:
     lista[menor_elemento_id] = var_aux
 ```
 </br>
+
 **3 - Mover o limite para a direita e repetir até ordenar tudo**
 ```
-    lista = [75, 12, 7, 8, 36]
-    for actual in range(len(lista) - 1):
-        min_id = actual
-        for i in range(actual, len(lista)):
-            if lista[min_id] > lista[i]:
-                print(f"{lista[min_id]} maior que {lista[i]}")
-                min_id = i
+lista = [75, 12, 7, 8, 36]
+for actual in range(len(lista) - 1):
+    min_id = actual
+    for i in range(actual, len(lista)):
+        if lista[min_id] > lista[i]:
+            print(f"{lista[min_id]} maior que {lista[i]}")
+            min_id = i
 
-        if lista[actual] > lista[min_id]:
-            aux = lista[actual] 
-            lista[actual] = lista[min_id]
-            lista[min_id] = aux
-    return lista```
+    if lista[actual] > lista[min_id]:
+        aux = lista[actual] 
+        lista[actual] = lista[min_id]
+        lista[min_id] = aux
+return lista
+```
 </br>
 
 ### Vantagens do Selection Sort: 
