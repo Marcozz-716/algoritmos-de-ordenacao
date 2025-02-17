@@ -62,7 +62,8 @@ return lista
 </br>
 
 **Vantagens do Selection Sort:** Fácil de implementar e funciona bem para listas pequenas.
-\ **Desvantagens do Selection Sort:** Não é tão eficiente pra listas grandes.
+</br>
+**Desvantagens do Selection Sort:** Não é tão eficiente pra listas grandes.
 
 ## Bubble Sort
 O Bubble Sort trabalha verificando os elementos de dois em dois. Ele começa analisando a primeira dupla de valores, deixando o valor mínimo na parte esquerda da dupla (se a dupla for [9, 4] o algoritmo transformará em [4, 9]). 
@@ -90,7 +91,8 @@ def bubble_sort2(lista):
 ```
 
 **Vantagens do Bubble Sort:** Também é fácil de implementar e funciona bem para listas pequenas e é mais adaptável.
-\ **Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes estruturas e faz mais trocas que o `Selection Sort`.
+</br>
+**Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes estruturas e faz mais trocas que o `Selection Sort`.
 
 ## Insertion Sort
 O Insertion Sort, por sua vez, começa pelo segundo elemento da estrutura de dados e "insere" os dados na posição correta, movendo os elementos maiores para a direita, se necessário. 
@@ -108,4 +110,4 @@ def insertion_sort(lista):
     return lista
 ```
 **Vantagens do Insert Sort:** Fácil de implementar e eficiente em listas já quase ordenadas.
-\ **Desvantagens do Insert Sort:** Também tem eficiência menor para grandes estruturas de dados
+**Desvantagens do Insert Sort:** Também tem eficiência menor para grandes estruturas de dados
