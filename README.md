@@ -8,7 +8,7 @@ Nesse repositório eu irei falar sobre os algoritmos:\
 **Merge Sort**\
 **Quick Sort**
 
-Você pode verificar a implementação dos algoritmos nessa [pasta](https://github.com/Marcozz-716/algoritmos-de-ordenacao/tree/main/algoritmos)
+Você pode verificar a implementação dos algoritmos em Python nessa [pasta](https://github.com/Marcozz-716/algoritmos-de-ordenacao/tree/main/algoritmos)
 
 ## Selection Sort
 O Selection Sort funciona dividindo os dados em duas partes: ordenados e não ordenados. Ele busca o menor elemento do conjunto, colocando-o no início e avançando para a direita para ordenar os demais elementos. 
@@ -62,7 +62,7 @@ return lista
 </br>
 
 **Vantagens do Selection Sort:** Fácil de implementar e funciona bem para listas pequenas.
-**Desvantagens do Selection Sort:** Não é tão eficiente pra listas grandes.
+\ **Desvantagens do Selection Sort:** Não é tão eficiente pra listas grandes.
 
 ## Bubble Sort
 O Bubble Sort trabalha verificando os elementos de dois em dois. Ele começa analisando a primeira dupla de valores, deixando o valor mínimo na parte esquerda da dupla (se a dupla for [9, 4] o algoritmo transformará em [4, 9]). 
@@ -76,7 +76,9 @@ def bubble_sort(lista):
     return lista
 ```
 </br>
-A função acima tem o output `[4, 2, 1, 7, 8, 9]`, o que ainda não é satisfatório. Para garantir que o a sequência seja ordenada, nós podemos executar um laço dentro de outro que usa o mesmo intervalo:
+A função acima tem o output
+`[4, 2, 1, 7, 8, 9]`
+, o que ainda não é satisfatório. Para garantir que o a sequência seja ordenada nós podemos executar um laço dentro de outro que usa o mesmo intervalo:
 
 ```python
 def bubble_sort2(lista):
@@ -88,4 +90,22 @@ def bubble_sort2(lista):
 ```
 
 **Vantagens do Bubble Sort:** Também é fácil de implementar e funciona bem para listas pequenas e é mais adaptável.
-**Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes conjuntos e faz mais trocas que o `Selection Sort`.
+\ **Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes estruturas e faz mais trocas que o `Selection Sort`.
+
+## Insertion Sort
+O Insertion Sort, por sua vez, começa pelo segundo elemento da estrutura de dados e "insere" os dados na posição correta, movendo os elementos maiores para a direita, se necessário. 
+Suponhamos que a estrutura em questão seja a lista
+`[4, 7, 2, 5, 4, 0]`
+. O algoritmo começa pelo número 7, verifica que não é necessário fazer mudanças e vai para o próximo índice. Na segunda iteração ele verifica que o 2 é menor que o 7 e faz uma troca. Ele faz isso até que a estrutura esteja ordenada. 
+```python
+def insertion_sort(lista):
+    for i in range(1, len(lista)):
+        chave = lista[i]
+        anterior_id = i - 1
+        while anterior_id >= 0 and lista[anterior_id] > chave:
+            lista[anterior_id + 1], lista[anterior_id] = lista[anterior_id], lista[anterior_id + 1]
+            anterior_id -= 1
+    return lista
+```
+**Vantagens do Insert Sort:** Fácil de implementar e eficiente em listas já quase ordenadas.
+\ **Desvantagens do Insert Sort:** Também tem eficiência menor para grandes estruturas de dados
