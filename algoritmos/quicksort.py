@@ -3,9 +3,9 @@ def quick_sort(lista, inicio=0, fim=None):
         fim = len(lista) - 1
 
     if inicio < fim:
-        p = partition(lista, inicio, fim) # primeiro retornará 4
-        quick_sort(lista, inicio, p-1) # esquerda, com os números menores que o pivô
-        quick_sort(lista, p+1, fim) # direita
+        p = partition(lista, inicio, fim) # posição do pivô após a "centralização"
+        quick_sort(lista, inicio, p-1) # esquerda, com os itens menores que o pivô
+        quick_sort(lista, p+1, fim) # direita, com os itens maiores
     return lista
 
 def partition(lista, inicio, fim):

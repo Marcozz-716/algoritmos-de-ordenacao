@@ -129,6 +129,7 @@ Após a divisão é necessário mesclar tudo novamente, porém ordenando:
 Para implementar esse algoritmo podemos inicialmente construir a função principal 
 `merge_sort` 
 que recebe como parâmetro a lista. Podemos usar a recursividade para dividir a lista **até que as sublistas tenham um elemento cada uma** :
+
 ```python
 def merge_sort(list_):
     if len(list_) > 1:
@@ -171,12 +172,47 @@ def merge(list_left, list_right):
 ## Quick Sort
 O Quick Sort também segue a lógica de "dividir para conquistar", mas funciona de um jeito um pouco deiferente dos outros algoritmos. O Quick Sort trabalha definindo um "pivô" no conjunto de dados, e divide todo o conjunto em elementos maiores que o pivô e elementos menores que o pivô **(para facilitar o entendimento irei definir o pivô sempre como o último elemento do conjunto)**. Essa segregação é feita de forma recursiva até que todo o conjunto esteja ordenado. 
 </br>
+</br>
 Vejamos isso acontecendo de forma mais lúdica e tomemos como exmplo a lista 
 `[89, 13, 17, 8, 5, 54]`
 . Inicialmente vamos criar uma linha imáginaria amarela e uma linha imaginária roxa. A linha amarela sempre terá a sua esquerda os valores menores que o pivô, e a sua direita os valores maiores que o pivô. O fluxo é o seguinte:
 </br>
+</br>
 **1 -** Ambas as linhas percorrem o conjunto. A linha amarela só avança quando um elemento menor que o pivô é encontrado, já a linha roxa avança sempre
 </br>
-**2 -** Quando um número menor do que o pivô é encontrado ele é **empilhado** a esquerda da linha amarela, e a linha amarela avança uma posição.
+**2 -** Quando um número menor do que o pivô é encontrado ele é colocado a esquerda da linha amarela, e a linha amarela avança uma posição.
 </br>
 **3 -** Quando a linha roxa chega na penúltima posição (no elemento antecessor ao pivô) ocorre uma troca de posição entre o pivô e o primeiro elemento a **direita da linha amarela**
+
+![Ilustração Quick Sort](imgs/Quick_sort_draw.png)
+</br>
+</br>
+Partindo para o código, podemos começar criando a função 
+`partition`
+que representa parte do fluxo descrito anteriormente:
+
+```python
+def partition(lista, inicio, fim):
+    pivot = lista[fim]
+    i = inicio # i é a linha amarela
+    for j in range(inicio, fim): # j é a linha roxa
+        if lista[j] <= pivot:
+            lista[j], lista[i] = lista[i], lista[j]
+            i += 1
+
+    lista[fim], lista[i] = lista[i], lista[fim] # colocando o pivô no meio
+    return i
+```
+Depois podemos implementar a função recursiva:
+```python
+def quick_sort(lista, inicio=0, fim=None):
+    if fim is None:
+        fim = len(lista) - 1
+
+    if inicio < fim:
+        p = partition(lista, inicio, fim) # posição do pivô após a "centralização"
+        quick_sort(lista, inicio, p-1) # esquerda, com os itens menores que o pivô
+        quick_sort(lista, p+1, fim) # direita, com os itens maiores
+    return lista
+```
+
