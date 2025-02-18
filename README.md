@@ -164,3 +164,19 @@ def merge(list_left, list_right):
 
     return sorted_list
 ```
+**Vantagens do Merge Sort:** É eficiente para grandes conjuntos de dados.
+</br>
+**Desvantagens do Merge Sort:** Requer o dobro de memória, pois precisa de um vetor com as mesmas dimensões do vetor que está sendo ordenado.
+
+## Quick Sort
+O Quick Sort também segue a lógica de "dividir para conquistar", mas funciona de um jeito um pouco deiferente dos outros algoritmos. O Quick Sort trabalha definindo um "pivô" no conjunto de dados, e divide todo o conjunto em elementos maiores que o pivô e elementos menores que o pivô **(para facilitar o entendimento irei definir o pivô sempre como o último elemento do conjunto)**. Essa segregação é feita de forma recursiva até que todo o conjunto esteja ordenado. 
+</br>
+Vejamos isso acontecendo de forma mais lúdica e tomemos como exmplo a lista 
+`[89, 13, 17, 8, 5, 54]`
+. Inicialmente vamos criar uma linha imáginaria amarela e uma linha imaginária roxa. A linha amarela sempre terá a sua esquerda os valores menores que o pivô, e a sua direita os valores maiores que o pivô. O fluxo é o seguinte:
+</br>
+**1 -** Ambas as linhas percorrem o conjunto. A linha amarela só avança quando um elemento menor que o pivô é encontrado, já a linha roxa avança sempre
+</br>
+**2 -** Quando um número menor do que o pivô é encontrado ele é **empilhado** a esquerda da linha amarela, e a linha amarela avança uma posição.
+</br>
+**3 -** Quando a linha roxa chega na penúltima posição (no elemento antecessor ao pivô) ocorre uma troca de posição entre o pivô e o primeiro elemento a **direita da linha amarela**
