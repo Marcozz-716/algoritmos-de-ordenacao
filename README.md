@@ -89,7 +89,6 @@ def bubble_sort2(lista):
                 lista[i], lista[i+1] = lista[i+1], lista[i] # troca sem variável auxiliar
     return lista
 ```
-
 **Vantagens do Bubble Sort:** Também é fácil de implementar e funciona bem para listas pequenas e é mais adaptável.
 </br>
 **Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes estruturas e faz mais trocas que o `Selection Sort`.
@@ -110,4 +109,13 @@ def insertion_sort(lista):
     return lista
 ```
 **Vantagens do Insert Sort:** Fácil de implementar e eficiente em listas já quase ordenadas.
+</br>
 **Desvantagens do Insert Sort:** Também tem eficiência menor para grandes estruturas de dados
+
+## Merge Sort
+O Merge Sort tem um jeito diferente de estruturar conjuntos de dados, baseando-se no princípio de "dividir para conquistar". Na prática ele pega o conjunto de dados e divide até que todo o conjunto se transforme em subconjuntos de apenas 1 elemento, então se a lista for
+`[6, 5, 3, 1, 8, 7, 3, 4]`
+O fluxo seria o seguinte:
+![foto original: https://miro.medium.com/v2/resize:fit:635/1*Cm0lz9sqD9EK8R6DJuzrHQ.png](imgs/merge_sort_divide.png)
+Após a divisão é necessário mesclar tudo novamente, porém ordenando:
+![Merge](imgs/merge_img.png)
