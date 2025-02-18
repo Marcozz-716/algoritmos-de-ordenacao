@@ -20,10 +20,15 @@ def merge(list_left, list_right):
         else:
             sorted_list.append(list_right[count_right])
             count_right += 1
-    print(sorted_list)
+
     sorted_list.extend(list_left[count_left:])
     sorted_list.extend(list_right[count_right:])
     return sorted_list
 
 lista = [25, 13, 77, 21, 11, 80]
 print(merge_sort(lista))
+
+
+
+
+

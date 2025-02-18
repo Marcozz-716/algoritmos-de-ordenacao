@@ -114,8 +114,56 @@ def insertion_sort(lista):
 
 ## Merge Sort
 O Merge Sort tem um jeito diferente de estruturar conjuntos de dados, baseando-se no princípio de "dividir para conquistar". Na prática ele pega o conjunto de dados e divide até que todo o conjunto se transforme em subconjuntos de apenas 1 elemento, então se a lista for
-`[6, 5, 3, 1, 8, 7, 3, 4]`
-O fluxo seria o seguinte:
+`[38, 27, 43, 3, 9, 82, 10]`
+, o fluxo seria o seguinte:
+</br>
+
 ![foto original: https://miro.medium.com/v2/resize:fit:635/1*Cm0lz9sqD9EK8R6DJuzrHQ.png](imgs/merge_sort_divide.png)
+</br>
+
 Após a divisão é necessário mesclar tudo novamente, porém ordenando:
+</br>
+
 ![Merge](imgs/merge_img.png)
+</br>
+Para implementar esse algoritmo podemos inicialmente construir a função principal 
+`merge_sort` 
+que recebe como parâmetro a lista. Podemos usar a recursividade para dividir a lista
+
+**até que as sublistas tenham um elemento cada uma**
+:
+```python
+def merge_sort(list_):
+    if len(list_) > 1:
+        mid = len(list_)//2
+        left = list_[:mid]
+        right = list_[mid:]
+
+        left = merge_sort(left)
+        right = merge_sort(right)
+
+        return merge(left, right)
+    return list_
+```
+Dividir as sublistas em direita e esquerda torna a implementação mais simples. Agora devemos criar a função
+`merge`
+para mesclar e ordenar as sublistas:
+```python
+def merge(list_left, list_right):
+    sorted_list = []
+    count_left = count_right = 0 # para percorrer as listas
+    while count_left < len(list_left) and count_right < len(list_right):
+        if list_left[count_left] < list_right[count_right]:
+            sorted_list.append(list_left[count_left])
+            count_left += 1
+        else:
+            sorted_list.append(list_right[count_right])
+            count_right += 1
+    print(sorted_list)
+    
+    # Para juntar as listas ordenadas
+    sorted_list.extend(list_left[count_left:])
+    sorted_list.extend(list_right[count_right:])
+    
+    return sorted_list
+```
