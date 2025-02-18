@@ -128,10 +128,7 @@ Após a divisão é necessário mesclar tudo novamente, porém ordenando:
 </br>
 Para implementar esse algoritmo podemos inicialmente construir a função principal 
 `merge_sort` 
-que recebe como parâmetro a lista. Podemos usar a recursividade para dividir a lista
-
-**até que as sublistas tenham um elemento cada uma**
-:
+que recebe como parâmetro a lista. Podemos usar a recursividade para dividir a lista **até que as sublistas tenham um elemento cada uma** :
 ```python
 def merge_sort(list_):
     if len(list_) > 1:
@@ -164,6 +161,6 @@ def merge(list_left, list_right):
     # Para juntar as listas ordenadas
     sorted_list.extend(list_left[count_left:])
     sorted_list.extend(list_right[count_right:])
-    
+
     return sorted_list
 ```
