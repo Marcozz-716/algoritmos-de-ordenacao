@@ -45,19 +45,19 @@ if lista[limite] > lista[menor_elemento_id]:
 **3 - Mover o limite para a direita e repetir até ordenar tudo**
 
 ```python
-lista = [75, 12, 7, 8, 36]
-for actual in range(len(lista) - 1):
-    min_id = actual
-    for i in range(actual, len(lista)):
-        if lista[min_id] > lista[i]:
-            print(f"{lista[min_id]} maior que {lista[i]}")
-            min_id = i
+def selection_sort(lista):
+    for actual in range(len(lista) - 1):
+        min_id = actual
+        for i in range(actual, len(lista)):
+            if lista[min_id] > lista[i]:
+                print(f"{lista[min_id]} maior que {lista[i]}")
+                min_id = i
 
-    if lista[actual] > lista[min_id]:
-        aux = lista[actual] 
-        lista[actual] = lista[min_id]
-        lista[min_id] = aux
-return lista
+        if lista[actual] > lista[min_id]:
+            aux = lista[actual] 
+            lista[actual] = lista[min_id]
+            lista[min_id] = aux
+    return lista
 ```
 </br>
 
@@ -66,7 +66,7 @@ return lista
 **Desvantagens do Selection Sort:** Não é tão eficiente pra listas grandes.
 
 ## Bubble Sort
-O Bubble Sort trabalha verificando os elementos de dois em dois. Ele começa analisando a primeira dupla de valores, deixando o valor mínimo na parte esquerda da dupla (se a dupla for [9, 4] o algoritmo transformará em [4, 9]). 
+O Bubble Sort trabalha verificando os elementos de dois em dois. Ele começa analisando a primeira dupla de valores, deixando o valor mínimo na parte esquerda da dupla **(se a dupla for [9, 4] o algoritmo transformará em [4, 9])**. 
 
 ```python
 lista = [4, 9, 2, 1, 7, 8]
@@ -89,7 +89,7 @@ def bubble_sort2(lista):
                 lista[i], lista[i+1] = lista[i+1], lista[i] # troca sem variável auxiliar
     return lista
 ```
-**Vantagens do Bubble Sort:** Também é fácil de implementar e funciona bem para listas pequenas e é mais adaptável.
+**Vantagens do Bubble Sort:** Também é fácil de implementar, funciona bem para listas pequenas e é mais adaptável.
 </br>
 **Desvantagens do Bubble Sort:** Também tem eficiência menor para grandes estruturas e faz mais trocas que o `Selection Sort`.
 
