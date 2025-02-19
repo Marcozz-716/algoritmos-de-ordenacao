@@ -182,7 +182,11 @@ Vejamos isso acontecendo de forma mais lúdica e tomemos como exmplo a lista
 </br>
 **2 -** Quando um número menor do que o pivô é encontrado ele é colocado a esquerda da linha amarela, e a linha amarela avança uma posição.
 </br>
-**3 -** Quando a linha roxa chega na penúltima posição (no elemento antecessor ao pivô) ocorre uma troca de posição entre o pivô e o primeiro elemento a **direita da linha amarela**
+**3 -** Quando a linha roxa chega na penúltima posição (no elemento antecessor ao pivô) ocorre uma troca de posição entre o pivô e o primeiro elemento a **direita da linha amarela**.
+</br>
+**4 -** Depois que o pivô assume esse novo índice duas sublistas são criadas: uma com os elementos a esquerda do pivô e outra com os elementos a direita, cada uma com um novo pivô
+</br>
+**5 -** O ciclo se repete com as sublistas até que o conjunto todo esteja ordenado.
 
 ![Ilustração Quick Sort](imgs/Quick_sort_draw.png)
 </br>
@@ -215,4 +219,6 @@ def quick_sort(lista, inicio=0, fim=None):
         quick_sort(lista, p+1, fim) # direita, com os itens maiores
     return lista
 ```
-
+**Vantagens do Quick Sort:** É eficiente em grandes conjuntos de dados e diferente do Merge Sort não precisa de memória auxiliar.
+</br>
+**Desvantagens do Quick Sort:** Pode ter o desempenho comprometido se os dados estiverem já ordenados, ou se a escolha do pivô não for feita de forma adequada.
